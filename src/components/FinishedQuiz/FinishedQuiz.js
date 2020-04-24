@@ -1,6 +1,7 @@
 import React from "react";
-import Button from '../UI/Button/Button'
-import classes from './FinishedQuiz.module.css'
+import Button from '../UI/Button/Button';
+import classes from './FinishedQuiz.module.css';
+import {Link} from 'react-router-dom';
 
 const FinishedQuiz = props => {
   const successCount = Object.keys(props.results).reduce((total, key) => {
@@ -20,9 +21,9 @@ const FinishedQuiz = props => {
           ];
           return (
             <li key={index}>
-              <strong>{index +  1}</strong>. &nbsp;
+              <strong>{index + 1}</strong>. &nbsp;
               {quizItem.question}
-              <i className={cls.join(' ')} />
+              <i className={cls.join(' ')}/>
             </li>
           )
         })}
@@ -36,11 +37,11 @@ const FinishedQuiz = props => {
         >
           Повторить
         </Button>
-        <Button
-          type={'success'}
-        >
-          Перейти в список тестов
-        </Button>
+        <Link to={'/'}>
+          <Button type={'success'}>
+            Перейти в список тестов
+          </Button>
+        </Link>
       </div>
     </div>
   )
